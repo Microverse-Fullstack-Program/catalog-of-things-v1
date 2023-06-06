@@ -1,4 +1,3 @@
-
 class Game 
   attr_accessor :title, :genre, :last_played_at
 
@@ -9,6 +8,6 @@ class Game
   end
 
   def can_be_archived?
-    super && last_played_at < 2.years.ago
+    super() && last_played_at < 2.years.ago
   end
 end
