@@ -12,8 +12,9 @@ class Author
     rand(1..100)
   end
 
-  def add_item(item)
-    @items << item
+  def add_item(item, game_library)
+    @items << item 
     item.author = self
+    game_library.authors << self
   end
 end
