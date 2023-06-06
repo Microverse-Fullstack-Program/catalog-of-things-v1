@@ -13,7 +13,7 @@ class Author
   end
 
   def add_item(item, game_library)
-    @items << item 
+    @items << item
     item.author = self
     game_library.authors << self
   end
