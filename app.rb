@@ -15,12 +15,12 @@ class App
     option = gets.chomp.downcase
     case option
     when '2'
-      album =  MusicAlbumData.new('./data/albums.json')
+      album = MusicAlbumData.new('./data/albums.json')
       album.run
-    else 
+    else
       puts 'Invalid choice'
       main_menu
-    end   
+    end
   end
 end
 
