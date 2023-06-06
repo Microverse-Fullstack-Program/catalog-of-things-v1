@@ -1,10 +1,16 @@
-class Game 
+class Game
   attr_accessor :title, :genre, :last_played_at
+  attr_writer :author
 
-  def initialize(title, genre)
+  def initialize(title, genre, author)
     @title = title
     @genre = genre
     @last_played_at = Time.now
+    @author = author
+  end
+
+  def author=(author)
+    @author = author
   end
 
   def can_be_archived?

@@ -1,4 +1,4 @@
-class Author < Item
+class Author
     attr_reader :id, :first_name, :last_name, :items
   
     def initialize(id, first_name = '', last_name = '')
