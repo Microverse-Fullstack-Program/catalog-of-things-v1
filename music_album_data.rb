@@ -50,6 +50,7 @@ class MusicAlbumData
         album = MusicAlbum.new(name,publish_date, on_spotify, genres: genres)
         @albums << album
         puts "Album '#{album.name}' Added successfully"
+        save_data
     end
 
     def run 
@@ -68,7 +69,7 @@ class MusicAlbumData
                 print ' Thanks for using our service '
                 return app.main_menu
             else
-                print 'Invalid option'
+                print 'You Entred an Invalid option'
                 return run 
             end
         end
@@ -77,7 +78,7 @@ class MusicAlbumData
     private
 
     def load_data
-        if File.exist(@filename)
+        if File.exist?(@filename)
             data = JSON.parse(File.read(@filename))
             data.map { |album_details| MusicAlbum.new(album_details['name'], album_details['publish_date'], on_spotify: album_details['on_spotify'], genres: album_details['genres']) }
         else
