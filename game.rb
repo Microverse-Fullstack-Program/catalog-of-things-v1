@@ -49,4 +49,3 @@ class Game < Item
     }
   end
 end
-

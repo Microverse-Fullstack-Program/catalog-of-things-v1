@@ -11,4 +11,3 @@ module AddAuthor
     authors << author
   end
 end
-
