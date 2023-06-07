@@ -1,6 +1,5 @@
 require 'json'
 require_relative 'musicalbum'
-require_relative 'app'
 require_relative 'item'
 
 class MusicAlbumData

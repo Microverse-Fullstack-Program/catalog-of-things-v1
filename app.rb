@@ -12,9 +12,9 @@ class App
       '4 - Quit'
     ]
     puts options
-    option = gets.chomp.downcase
+    option = gets.chomp.to_i
     case option
-    when '2'
+    when 2
       album = MusicAlbumData.new('./data/albums.json')
       album.run
     else
