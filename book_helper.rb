@@ -44,6 +44,7 @@ class BookHelper
         selected_option = gets.chomp.to_i
         puts 'Invalid Option, Back to Main Menu' unless [1, 2, 3, 4, 5].include?(selected_option)
 
+        break if selected_option == 5
         perform_action(selected_option)
       end
     end
@@ -59,8 +60,6 @@ class BookHelper
       add_book(@books)
     when 4
       add_label(@labels)
-    when 5
-      break
     when 6
       write_book(@books)
       write_label(@labels)
