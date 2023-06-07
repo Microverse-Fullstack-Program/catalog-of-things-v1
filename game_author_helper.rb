@@ -107,7 +107,6 @@ class GameLibrary
     end
   end
 
-
   private
 
   def add_new_game
