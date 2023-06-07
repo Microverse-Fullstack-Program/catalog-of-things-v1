@@ -1,0 +1,24 @@
+{
+  "1": {
+    "id": 700,
+    "genre": null,
+    "author": null,
+    "source": null,
+    "publisher": "Mega",
+    "cover_state": "bad",
+    "label": null,
+    "publish_date": null,
+    "archived": true
+  },
+  "2": {
+    "id": 991,
+    "genre": null,
+    "author": null,
+    "source": null,
+    "publisher": "Berhana",
+    "cover_state": "good",
+    "label": null,
+    "publish_date": null,
+    "archived": false
+  }
+}

@@ -1,5 +1,5 @@
-require_relative '../item.rb'
-require_relative '../musicalbum.rb'
+require_relative '../item'
+require_relative '../musicalbum'
 
 RSpec.describe MusicAlbum do
   before do
@@ -27,14 +27,13 @@ RSpec.describe MusicAlbum do
     expect(music_album.can_be_archived?).to be false
   end
 
-  it 'check when cannnot be archived when release date not older than 10 years' do 
+  it 'check when cannnot be archived when release date not older than 10 years' do
     music_album = MusicAlbum.new('Me and You', '2020-01-12', on_spotify: true)
     expect(music_album.can_be_archived?).to be false
   end
 
-  it 'check it can  be archived when release date  older than 10 years and on_spotify is true'  do 
+  it 'check it can  be archived when release date  older than 10 years and on_spotify is true' do
     music_album = MusicAlbum.new('Me and You', '2010-01-12', on_spotify: true)
     expect(music_album.can_be_archived?).to be true
   end
-
 end

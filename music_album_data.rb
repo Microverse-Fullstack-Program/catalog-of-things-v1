@@ -39,15 +39,15 @@ class MusicAlbumData
   end
 
   def add_album
-    puts ' Enter album title:'
+    print ' Enter album title:'
     name = gets.chomp
-    puts 'Enter date of release (YYYY-M-D):'
+    print 'Enter date of release (YYYY-M-D):'
     publish_date = gets.chomp
-    puts 'Album listed on spotify? (Y/N):'
+    print 'Album listed on spotify? (Y/N):'
     on_spotify = gets.chomp.downcase == 'y'
-    puts ' Enter the genre of the album music:'
+    print ' Enter the genre of the album music:'
     genres = gets.chomp
-    album = MusicAlbum.new(name, publish_date, on_spotify, genres: genres)
+    album = MusicAlbum.new(name, publish_date, on_spotify: on_spotify, genres: genres)
     @albums << album
     puts "Album '#{album.name}' Added successfully"
     save_data
@@ -66,10 +66,10 @@ class MusicAlbumData
       when 3
         add_album
       when 4
-        print ' Thanks for using our service '
+        puts ' Thanks for using our service '
         return app.main_menu
       else
-        print 'You Entred an Invalid option'
+        puts 'You Entred an Invalid option'
         return run
       end
     end
