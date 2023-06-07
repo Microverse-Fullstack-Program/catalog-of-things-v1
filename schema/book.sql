@@ -9,3 +9,10 @@ CREATE TABLE books (
   publish_date DATE NOT NULL,
   archived BOOLEAN NOT NULL
 );
+
+----------- Create labels table ------------------
+CREATE TABLE labels (
+  id SERIAL PRIMARY KEY,
+  title VARCHAR(50) NOT NULL,
+  color VARCHAR(50) NOT NULL
+);
