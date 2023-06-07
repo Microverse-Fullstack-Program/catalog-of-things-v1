@@ -6,7 +6,8 @@ module PreserveBook
 
     book_hash = {}
     books.each_with_index do |book, index|
-      book_hash[(index + 1).to_s] = { 'id' => book.id, 'publisher' => book.publisher,
+      book_hash[(index + 1).to_s] = { 'id' => book.id, 'genre' => book.genre, 'author' => book.author,
+                                      'source' => book.source, 'publisher' => book.publisher,
                                       'cover_state' => book.cover_state, 'label' => book.label,
                                       'publish_date' => book.publish_date, 'archived' => book.archived }
     end
@@ -21,7 +22,7 @@ module PreserveBook
 
     books_record = JSON.parse(file.read)
     books_record.each do |_key, book|
-      books << Book.new(book['publisher'], book['cover_state'], book['label'], book['publish_date'])
+      books << Book.new(book['publisher'], book['cover_state'])
     end
   end
 end

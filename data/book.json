@@ -1,18 +1,24 @@
 {
   "1": {
-    "id": 276,
+    "id": 700,
+    "genre": null,
+    "author": null,
+    "source": null,
     "publisher": "Mega",
     "cover_state": "bad",
-    "label": "Gift",
-    "publish_date": "2021/4/15",
+    "label": null,
+    "publish_date": null,
     "archived": true
   },
   "2": {
-    "id": 634,
+    "id": 991,
+    "genre": null,
+    "author": null,
+    "source": null,
     "publisher": "Berhana",
     "cover_state": "good",
-    "label": "zzmzc zczc",
-    "publish_date": "2023/4/23",
+    "label": null,
+    "publish_date": null,
     "archived": false
   }
 }
