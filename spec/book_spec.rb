@@ -38,7 +38,6 @@ describe Book do
       end
 
       it 'returns true' do
-        puts @book.inspect
         expect(@book.archived).to be true
       end
     end
