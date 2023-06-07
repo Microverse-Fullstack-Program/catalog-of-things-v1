@@ -6,8 +6,9 @@ module PreserveBook
 
     book_hash = {}
     books.each_with_index do |book, index|
-      book_hash[(index + 1).to_s] = { 'id'=>book.id ,'publisher' => book.publisher, 'cover_state' => book.cover_state,
-      'label' => book.label, 'publish_date' => book.publish_date, 'archived' => book.archived }
+      book_hash[(index + 1).to_s] = { 'id' => book.id, 'publisher' => book.publisher,
+                                      'cover_state' => book.cover_state, 'label' => book.label,
+                                      'publish_date' => book.publish_date, 'archived' => book.archived }
     end
     file.write(JSON.pretty_generate(book_hash))
   end

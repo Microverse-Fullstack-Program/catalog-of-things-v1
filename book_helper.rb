@@ -35,8 +35,8 @@ class BookHelper
     when 6
       add_label(@labels)
     when 7
-        write_book(@books)
-        write_label(@labels)
+      write_book(@books)
+      write_label(@labels)
     else
       puts 'Invalid Option'
     end
