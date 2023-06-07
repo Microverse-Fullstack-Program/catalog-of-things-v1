@@ -11,7 +11,7 @@ class Game < Item
     @title = title
     @multiplayer = multiplayer
     @last_played_at = last_played_at
-    @publish_date = Date.parse(publish_date).strftime('%Y/%m/%d')
+    @publish_date = publish_date
     @can_be_archived = can_be_archived?
     @authors = []
     add_authors(authors)
