@@ -1,7 +1,7 @@
 class Author
   attr_reader :id, :first_name, :last_name, :items
 
-  def initialize(_id, first_name = '', last_name = '')
+  def initialize(id, first_name = '', last_name = '')
     @id = generate_random_id
     @first_name = first_name
     @last_name = last_name
