@@ -5,6 +5,10 @@ require_relative 'author'
 class GameLibrary
   attr_reader :games, :authors
 
+  DATA_PATH = './data'.freeze
+  GAMES_FILE = "#{DATA_PATH}/games.json".freeze
+  AUTHORS_FILE = "#{DATA_PATH}/authors.json".freeze
+
   def initialize
     @games = []
     @authors = []
@@ -14,7 +18,7 @@ class GameLibrary
     @games << game
     game.authors.each { |author| add_author(author) }
     save_data
-    puts "Game '#{game.title}' has been added."
+    puts 'Game Created 🎮'
   end
 
   def add_author(author)
@@ -55,57 +59,78 @@ class GameLibrary
   end
 
   def save_data
-    return unless File.exist?('./data/games.json') && File.exist?('./data/authors.json')
+    return unless File.exist?(GAMES_FILE) && File.exist?(AUTHORS_FILE)
 
-    File.write('./data/games.json', JSON.generate(games.map(&:to_hash)))
-    File.write('./data/authors.json', JSON.generate(authors.map(&:to_hash)))
+    File.write(GAMES_FILE, JSON.generate(games.map(&:to_hash)))
+    File.write(AUTHORS_FILE, JSON.generate(authors.map(&:to_hash)))
   end
 
   def load_data
-    return unless File.exist?('./data/games.json') && File.exist?('./data/authors.json')
+    return unless File.exist?(GAMES_FILE) && File.exist?(AUTHORS_FILE)
 
-    games_data = JSON.parse(File.read('./data/games.json'), object_class: Game)
-    authors_data = JSON.parse(File.read('./data/authors.json'), object_class: Author)
-    @games = games_data.map { |game_data| Game.new(game_data['title'], game_data['multiplayer'], game_data['last_played_at'], game_data['publish_date'], game_data['authors']) }
+    games_data = JSON.parse(File.read(GAMES_FILE), object_class: Game)
+    authors_data = JSON.parse(File.read(AUTHORS_FILE), object_class: Author)
+    @games = games_data.map do |game_data|
+      Game.new(game_data['title'], game_data['multiplayer'], game_data['last_played_at'], game_data['publish_date'],
+               game_data['authors'])
+    end
     @authors = authors_data
+  end
+
+  def menu
+    puts 'Welcome!'
+    puts '1. List all games'
+    puts '2. List all authors'
+    puts '3. Add game'
+    puts '4. Quit'
   end
 
   def game_menu
     loop do
-      puts "Welcome!"
-      puts '1. List all games'
-      puts '2. List all authors'
-      puts '3. Add game'
-      puts '4. Quit'
+      menu
+
       choice = gets.chomp.to_i
+
       case choice
       when 1
         list_games
       when 2
         list_authors
       when 3
-        print 'Enter game title:'
-        title = gets.chomp
-        print 'Is the game multiplayer? (Y/N)'
-        multiplayer = gets.chomp.downcase == 'y'
-        print 'Enter the date of the last time the game was played (YYYY/MM/DD):'
-        last_played_at = gets.chomp
-        print 'Enter the game\'s publish date (YYYY/MM/DD):'
-        publish_date = gets.chomp
-        game = Game.new(title, multiplayer, last_played_at, publish_date, [])
-        print 'Enter author first name:'
-        first_name = gets.chomp
-        print 'Enter author last name:'
-        last_name = gets.chomp
-        author = Author.new(first_name, last_name)
-        game.add_author(author)
-        add_game(game)
+        add_new_game
       when 4
-        puts "Thanks for using this app"
+        puts 'Thanks for using this app'
         exit
       else
         puts 'Invalid choice. Please choose again.'
       end
     end
+  end
+
+
+  private
+
+  def add_new_game
+    print 'Enter game title:'
+    title = gets.chomp
+    print 'Is the game multiplayer? (Y/N)'
+    multiplayer = gets.chomp.downcase == 'y'
+    print 'Enter the date of the last time the game was played (YYYY/MM/DD):'
+    last_played_at = gets.chomp
+    print 'Enter the game\'s publish date (YYYY/MM/DD):'
+    publish_date = gets.chomp
+
+    game = Game.new(title, multiplayer, last_played_at, publish_date, [])
+    add_author_to_game(game)
+    add_game(game)
+  end
+
+  def add_author_to_game(game)
+    print 'Enter author first name:'
+    first_name = gets.chomp
+    print 'Enter author last name:'
+    last_name = gets.chomp
+    author = Author.new(first_name, last_name)
+    game.add_author(author)
   end
 end
