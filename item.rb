@@ -1,15 +1,16 @@
 require 'date'
 
 class Item
-  attr_reader :id, :genre, :author, :source, :label, :punlish_date, :archived
+  attr_reader :id, :archived
+  attr_accessor :genre, :author, :source, :label, :publish_date
 
-  def initialize(id = Random.rand(1..1000))
-    @id = id
+  def initialize(publish_date = nil)
+    @id = Random.rand(1..1000)
     @genre = nil
     @author = nil
     @source = nil
-    @label = label
-    @punlish_date = nil
+    @label = nil
+    @publish_date = publish_date
     @archived = false
   end
 
@@ -20,6 +21,10 @@ class Item
   private
 
   def can_be_archived?
-    (Date.today.year - Date.parse(@publish_date).year) > 10
+    return false if @publish_date.nil? || @publish_date.empty? || @publish_date == 'N/A'
+
+    return true if (Date.today.year - Date.parse(@publish_date).year) > 10
+
+    false
   end
 end
