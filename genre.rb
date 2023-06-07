@@ -1,23 +1,17 @@
-require_relative './item'
+require_relative 'musicalbum'
 
 class Genre
-  attr_reader :id
-  attr_accessor :name, :items
+  attr_reader :name, :items
 
-  def initialize(name, id: nil)
-    @id = id.nil? ? generate_id : id
-    @name = name.to_s
+  def initialize(name)
+    @id = Random.new.rand(1..1000)
+    @name = name
     @items = []
   end
 
   def add_item(item)
-    @items << item
+    @items.push(item)
     item.genre = self
-  end
-
-  private
-
-  def generate_id
-    Random.rand(1..1000)
+    item.add_genre(self)
   end
 end

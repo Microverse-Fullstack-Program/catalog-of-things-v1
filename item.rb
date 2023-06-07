@@ -21,9 +21,9 @@ class Item
   private
 
   def can_be_archived?
-    return false if @publish_date.nil? || @publish_date.empty? || @publish_date == 'N/A'
+    return false if @publish_date.nil? || @publish_date == 'N/A'
 
-    return true if (Date.today.year - Date.parse(@publish_date).year) > 10
+    return true if (Date.today.year - Date.parse(@publish_date.to_s).year) > 10
 
     false
   end
