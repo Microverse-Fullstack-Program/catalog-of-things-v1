@@ -33,8 +33,7 @@ class BookHelper
         puts 'Welcome to Books catalog, Please select an Option: '
         options = [
           '1 - List All Books', '2 - List All Labels',
-          '3 - Add Book', '4 - Add Label',
-          '5 - Back to Main Menu'
+          '3 - Add Book', '4 - Add Label', '5 - Back to Main Menu'
         ]
 
         puts '------------------------'
@@ -45,6 +44,7 @@ class BookHelper
         puts 'Invalid Option, Back to Main Menu' unless [1, 2, 3, 4, 5].include?(selected_option)
 
         break if selected_option == 5
+
         perform_action(selected_option)
       end
     end
