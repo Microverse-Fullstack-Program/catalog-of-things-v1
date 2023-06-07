@@ -8,12 +8,10 @@ module AddBook
     publisher = gets.chomp
     print 'Please enter the book cover state [bad, good ...]: '
     cover_state = gets.chomp
-    print 'Please enter the book label: '
-    label = gets.chomp
     print 'Please enter the book publish date [YYYY/MM/DD]: '
-    publish_date = gets.chomp
+    gets.chomp
 
-    book = Book.new(publisher, cover_state, label, publish_date)
+    book = Book.new(publisher, cover_state, publish_date)
     books << book
   end
 end
