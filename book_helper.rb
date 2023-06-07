@@ -27,14 +27,14 @@ class BookHelper
   def book_menu(option)
     loop do
       if option == 4
-        6
+        write_book(@books)
+        write_label(@labels)
+        break
       else
         puts
         puts 'Welcome to Books catalog, Please select an Option: '
-        options = [
-          '1 - List All Books', '2 - List All Labels',
-          '3 - Add Book', '4 - Add Label', '5 - Back to Main Menu'
-        ]
+        options = ['1 - List All Books', '2 - List All Labels', '3 - Add Book', '4 - Add Label',
+                   '5 - Back to Main Menu']
 
         puts '------------------------'
         puts options
@@ -60,10 +60,6 @@ class BookHelper
       add_book(@books)
     when 4
       add_label(@labels)
-    when 6
-      write_book(@books)
-      write_label(@labels)
-      break
     end
   end
 end
