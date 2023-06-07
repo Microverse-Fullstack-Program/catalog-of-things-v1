@@ -1,4 +1,6 @@
 require_relative 'book_helper'
+require_relative 'musicalbum'
+require_relative 'music_album_data'
 
 class App
   def initialize
@@ -9,7 +11,7 @@ class App
     puts 'Welcome to our catalog, Please select an Option: '
     options = [
       '1 - Books Catalog',
-      '2 - MusicsAlbum Catalog',
+      '2 - Musics Album Catalog',
       '3 - Games Catalog',
       '4 - Quit'
     ]
@@ -32,7 +34,8 @@ class App
     when 1
       @book_helper.book_menu(option)
     when 2
-      # TODO: implement music album menu
+      album = MusicAlbumData.new('./data/albums.json')
+      album.run
     when 3
     # TODO: implement games menu
     when 4
