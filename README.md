@@ -58,9 +58,9 @@
 
 ### Key Features <a name="key-features"></a>
 
-- **Create items like book, music album and game**
-- **List added items**
-- **Preserve each item's data in a separate JSON file**
+- Create items like book, music album and game
+- List added items
+- Preserve each item's data in a separate JSON file
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -142,9 +142,9 @@ To run tests, run the following command:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **Update selected Items**
-- [ ] **Add genres/labels**
-- [ ] **Add Movies Items**
+- [ ] Update selected Items
+- [ ] Add genres/labels
+- [ ] Add Movies Items
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
