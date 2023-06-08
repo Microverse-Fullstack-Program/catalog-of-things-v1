@@ -1,2 +1,46 @@
 {
+  "1": {
+    "id": 918,
+    "genre": null,
+    "author": null,
+    "source": null,
+    "publisher": "xxx xxx",
+    "cover_state": "bad",
+    "label": null,
+    "publish_date": null,
+    "archived": true
+  },
+  "2": {
+    "id": 578,
+    "genre": null,
+    "author": null,
+    "source": null,
+    "publisher": "yyy",
+    "cover_state": "good",
+    "label": null,
+    "publish_date": null,
+    "archived": false
+  },
+  "3": {
+    "id": 539,
+    "genre": null,
+    "author": null,
+    "source": null,
+    "publisher": "zzzzz zz",
+    "cover_state": "good",
+    "label": null,
+    "publish_date": null,
+    "archived": false
+  },
+  "4": {
+    "id": 540,
+    "genre": null,
+    "author": null,
+    "source": null,
+    "publisher": "ddd dd",
+    "cover_state": "good",
+    "label": null,
+    "publish_date": "2023/12/31",
+    "archived": false
+  }
 }
