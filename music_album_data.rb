@@ -24,6 +24,7 @@ class MusicAlbumData
       @albums.each do |album|
         puts "Album title: #{album.name} :: Release year: #{album.publish_date.year} :: Music genre: #{album.genres} "
       end
+      puts
     end
   end
 
@@ -39,13 +40,13 @@ class MusicAlbumData
   end
 
   def add_album
-    print ' Enter album title:'
+    print ' Enter album title: '
     name = gets.chomp
-    print 'Enter date of release (YYYY-M-D):'
+    print 'Enter date of release (YYYY-M-D): '
     publish_date = gets.chomp
-    print 'Album listed on spotify? (Y/N):'
+    print 'Album listed on spotify? (Y/N): '
     on_spotify = gets.chomp.downcase == 'y'
-    print ' Enter the genre of the album music:'
+    print ' Enter the genre of the album music: '
     genres = gets.chomp
     album = MusicAlbum.new(name, publish_date, on_spotify: on_spotify, genres: genres)
     @albums << album
