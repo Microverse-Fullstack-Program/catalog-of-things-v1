@@ -110,6 +110,8 @@ To run tests, run the following command:
   cd spec
   rspec classname_spec.rb
 ```
+## Rspec Tests
+<img src="./images/rspectests.png" />
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

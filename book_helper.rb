@@ -24,42 +24,52 @@ class BookHelper
     read_label(@labels)
   end
 
-  def book_menu(option)
+  def book_menu()
+    puts
+    puts 'Welcome to Books catalog, Please select an Option: '
     loop do
-      if option == 4
-        write_book(@books)
-        write_label(@labels)
+      options = [
+        '1 - List All Books', '2 - List All Labels',
+        '3 - Add Book', '4 - Back to Main Menu',
+        '5 - Quit'
+      ]
+
+      puts '------------------------'
+      puts options
+      puts '------------------------'
+      print 'option: '
+      choice = gets.chomp.to_i
+
+      if choice == 4
+        write_file
+        puts 'You Are Back to Main Menu'
         break
-      else
-        puts
-        puts 'Welcome to Books catalog, Please select an Option: '
-        options = ['1 - List All Books', '2 - List All Labels', '3 - Add Book', '4 - Add Label',
-                   '5 - Back to Main Menu']
-
-        puts '------------------------'
-        puts options
-        puts '------------------------'
-        print 'option: '
-        selected_option = gets.chomp.to_i
-        puts 'Invalid Option, Back to Main Menu' unless [1, 2, 3, 4, 5].include?(selected_option)
-
-        break if selected_option == 5
-
-        perform_action(selected_option)
       end
+
+      perform_action(choice)
     end
   end
 
-  def perform_action(selected_option)
-    case selected_option
+  def perform_action(option)
+    case option
     when 1
       list_all_books(@books)
     when 2
       list_all_labels(@labels)
     when 3
       add_book(@books)
-    when 4
       add_label(@labels)
+    when 5
+      write_file
+      exit 0
+    else
+      puts 'Invalid Option, try again!'
     end
+  end
+
+  def write_file
+    write_book(@books)
+    write_label(@labels)
+    puts 'Thank You for using this app!'
   end
 end

@@ -1,10 +1,12 @@
 require_relative 'book_helper'
 require_relative 'musicalbum'
 require_relative 'music_album_data'
+require_relative 'game_author_helper'
 
 class App
   def initialize
     @book_helper = BookHelper.new
+    @game_author_helper = GameLibrary.new
   end
 
   def main_menu
@@ -32,14 +34,14 @@ class App
   def action(option)
     case option
     when 1
-      @book_helper.book_menu(option)
+      @book_helper.book_menu
     when 2
       album = MusicAlbumData.new('./data/albums.json')
       album.run
     when 3
-    # TODO: implement games menu
+      game = GameLibrary.new
+      game.game_menu
     when 4
-      @book_helper.book_menu(option)
       puts 'Thank You for using this app!'
       exit 0
     end

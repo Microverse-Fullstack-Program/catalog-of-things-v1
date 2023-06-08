@@ -13,5 +13,6 @@ module AddBook
 
     book = Book.new(publisher, cover_state, publish_date)
     books << book
+    puts 'Book added successfully!'
   end
 end
