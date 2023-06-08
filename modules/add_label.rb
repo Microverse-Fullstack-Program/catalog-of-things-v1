@@ -11,5 +11,7 @@ module AddLabel
 
     label = Label.new(title, color)
     labels << label
+    puts 'Label added successfully!'
+    puts
   end
 end
