@@ -82,7 +82,8 @@ class GameLibrary
     puts '1. List all games'
     puts '2. List all authors'
     puts '3. Add game'
-    puts '4. Quit'
+    puts '4. Back to Main Menu'
+    puts '5. Quit'
   end
 
   def game_menu
@@ -99,6 +100,9 @@ class GameLibrary
       when 3
         add_new_game
       when 4
+        break 
+        game_menu(selected_option)
+      when 5
         puts 'Thanks for using this app'
         exit
       else
