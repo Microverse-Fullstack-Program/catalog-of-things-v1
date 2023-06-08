@@ -22,6 +22,8 @@ class Game < Item
   end
 
   def add_authors(authors)
+    return if authors.nil?
+
     authors.each { |author| add_author(author) }
   end
 
