@@ -100,8 +100,8 @@ class GameLibrary
       when 3
         add_new_game
       when 4
-        break 
-        game_menu(selected_option)
+        break
+        game_menu(menu)
       when 5
         puts 'Thanks for using this app'
         exit
